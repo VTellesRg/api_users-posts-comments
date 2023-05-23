@@ -3,10 +3,10 @@ import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 import { PostsController } from './posts.controller';
 import { PostsService } from './posts.service';
-import { Post, PostSchema } from './entities/post.entity';
+import { Posts, PostsSchema } from './entities/post.entity';
 
 @Module({
-  imports: [MongooseModule.forFeature([{ name: Post.name, schema: PostSchema }])],
+  imports: [MongooseModule.forFeature([{ name: Posts.name, schema: PostsSchema }])],
   controllers: [PostsController],
   providers: [PostsService],
 })
