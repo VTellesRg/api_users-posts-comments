@@ -17,18 +17,18 @@ export class CommentsController {
     return this.commentsService.findAll();
   }
 
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.commentsService.findOne(+id);
+  @Get(':post_id')
+  findOne(@Param('post_id') post_id: string) {
+    return this.commentsService.findOne(+post_id);
   }
 
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateCommentDto: UpdateCommentDto) {
-    return this.commentsService.update(+id, updateCommentDto);
+  @Patch(':post_id')
+  update(@Param('post_id') post_id: string, @Body() updateCommentDto: UpdateCommentDto) {
+    return this.commentsService.update(+post_id, updateCommentDto);
   }
 
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.commentsService.remove(+id);
+  @Delete(':post_id')
+  remove(@Param('post_id') post_id: string) {
+    return this.commentsService.remove(+post_id);
   }
 }
