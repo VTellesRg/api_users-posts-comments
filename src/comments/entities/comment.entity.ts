@@ -6,22 +6,15 @@ export type CommentDocument = HydratedDocument<Comment>;
 
 @Schema()
 export class Comment {
-
     @Prop()
-    name: string;
+    post_id: string;
 
     @Prop()
     user: string;
 
     @Prop()
-    birthdate: string;
-
-    @Prop()
-    email: string;
-
-    @Prop()
-    password: string;
-
+    comment: string;
+    
 }
 
 export const CommentSchema = SchemaFactory.createForClass(Comment);

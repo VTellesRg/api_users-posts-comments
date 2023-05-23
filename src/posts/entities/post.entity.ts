@@ -8,19 +8,14 @@ export type PostsDocument = HydratedDocument<Posts>;
 export class Posts {
 
     @Prop()
-    name: string;
-
-    @Prop()
     user: string;
 
     @Prop()
-    birthdate: string;
+    description: string;
 
     @Prop()
-    email: string;
+    url_image: string;
 
-    @Prop()
-    password: string;
 
 }
 
