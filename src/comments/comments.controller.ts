@@ -7,28 +7,28 @@ import { UpdateCommentDto } from './dto/update-comment.dto';
 export class CommentsController {
   constructor(private readonly commentsService: CommentsService) {}
 
-  @Post()
+  @Post('/api/v1/posts/:id/comments')
   create(@Body() createCommentDto: CreateCommentDto) {
     return this.commentsService.create(createCommentDto);
   }
 
-  @Get()
+  @Get('/api/v1/posts/:id/comments')
   findAll() {
     return this.commentsService.findAll();
   }
 
-  @Get(':post_id')
-  findOne(@Param('post_id') post_id: string) {
-    return this.commentsService.findOne(post_id);
+  @Get('/api/v1/posts/:id/comments/:comment_id')
+  findOne(@Param('comment_id') comment_id: string) {
+    return this.commentsService.findOne(comment_id);
   }
 
-  @Patch(':post_id')
-  update(@Param('post_id') post_id: string, @Body() updateCommentDto: UpdateCommentDto) {
-    return this.commentsService.update(post_id, updateCommentDto);
+  @Patch('/api/v1/posts/:id/comments/:comment_id')
+  update(@Param('comment_id') comment_id: string, @Body() updateCommentDto: UpdateCommentDto) {
+    return this.commentsService.update(comment_id, updateCommentDto);
   }
 
-  @Delete(':post_id')
-  remove(@Param('post_id') post_id: string) {
-    return this.commentsService.remove(post_id);
+  @Delete('/api/v1/posts/:id/comments/:comment_id')
+  remove(@Param('comment_id') comment_id: string) {
+    return this.commentsService.remove(comment_id);
   }
 }

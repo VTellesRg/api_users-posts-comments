@@ -7,27 +7,27 @@ import { UpdatePostDto } from './dto/update-post.dto';
 export class PostsController {
   constructor(private readonly postsService: PostsService) {}
 
-  @Post()
+  @Post('/api/v1/posts')
   async create(@Body() createPostDto: CreatePostDto) {
     return this.postsService.create(createPostDto);
   }
 
-  @Get()
+  @Get('/api/v1/posts')
   async findAll() {
     return this.postsService.findAll();
   }
 
-  @Get(':id')
+  @Get('/api/v1/posts/:id')
   async findOne(@Param('id') id: string) {
     return this.postsService.findOne(id);
   }
 
-  @Patch(':id')
+  @Patch('/api/v1/posts/:id')
   async update(@Param('id') id: string, @Body() updatePostDto: UpdatePostDto) {
     return this.postsService.update(id, updatePostDto);
   }
 
-  @Delete(':id')
+  @Delete('/api/v1/posts/:id')
   async remove(@Param('id') id: string) {
     return this.postsService.remove(id);
   }
