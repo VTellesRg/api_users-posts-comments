@@ -19,16 +19,16 @@ export class CommentsController {
 
   @Get(':post_id')
   findOne(@Param('post_id') post_id: string) {
-    return this.commentsService.findOne(+post_id);
+    return this.commentsService.findOne(post_id);
   }
 
   @Patch(':post_id')
   update(@Param('post_id') post_id: string, @Body() updateCommentDto: UpdateCommentDto) {
-    return this.commentsService.update(+post_id, updateCommentDto);
+    return this.commentsService.update(post_id, updateCommentDto);
   }
 
   @Delete(':post_id')
   remove(@Param('post_id') post_id: string) {
-    return this.commentsService.remove(+post_id);
+    return this.commentsService.remove(post_id);
   }
 }

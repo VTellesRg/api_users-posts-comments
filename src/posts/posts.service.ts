@@ -1,33 +1,42 @@
 import { Injectable, Post } from '@nestjs/common';
 import { CreatePostDto } from './dto/create-post.dto';
 import { UpdatePostDto } from './dto/update-post.dto';
-import { Posts } from './entities/post.entity';
+import { Posts, PostsDocument } from './entities/post.entity';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 
 @Injectable()
 export class PostsService {
 
-  constructor(@InjectModel(Posts.name) private postsModel: Model<Posts>) {}
+  constructor(@InjectModel(Posts.name) private postsModel: Model<PostsDocument>) {}
 
 
-  create(createPostDto: CreatePostDto) {
-    return 'This action adds a new post';
+  async create(createUserDto: CreatePostDto) {
+    const user = new this.postsModel(createUserDto);
+    return user.save();
+    // return 'This action adds a new user';
   }
 
-  findAll() {
-    return `This action returns all posts`;
+  async findAll() {
+    return this.postsModel.find();
+    // return `This action returns all users`;
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} post`;
+  async findOne(id: string) {
+    return this.postsModel.findById(id);
+    // return `This action returns a #${id} user`;
   }
 
-  update(id: number, updatePostDto: UpdatePostDto) {
-    return `This action updates a #${id} post`;
+  async update(id: string, updateUserDto: UpdatePostDto) {
+    return this.postsModel.findByIdAndUpdate(
+      {_id: id,},
+      { updateUserDto,},
+      { new: true,})
+    // return `This action updates a #${id} user`;
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} post`;
+  async remove(id: string) {
+    return this.postsModel.deleteOne({_id: id,}).exec();
+    // return `This action removes a #${id} user`;
   }
 }

@@ -10,23 +10,23 @@ export class UsersService {
 
   constructor(@InjectModel(User.name) private userModel: Model<UserDocument>) {}
 
-  create(createUserDto: CreateUserDto) {
+  async create(createUserDto: CreateUserDto) {
     const user = new this.userModel(createUserDto);
     return user.save();
     // return 'This action adds a new user';
   }
 
-  findAll() {
+  async findAll() {
     return this.userModel.find();
     // return `This action returns all users`;
   }
 
-  findOne(id: string) {
+  async findOne(id: string) {
     return this.userModel.findById(id);
     // return `This action returns a #${id} user`;
   }
 
-  update(id: string, updateUserDto: UpdateUserDto) {
+  async update(id: string, updateUserDto: UpdateUserDto) {
     return this.userModel.findByIdAndUpdate(
       {_id: id,},
       { updateUserDto,},
@@ -34,7 +34,7 @@ export class UsersService {
     // return `This action updates a #${id} user`;
   }
 
-  remove(id: string) {
+  async remove(id: string) {
     return this.userModel.deleteOne({_id: id,}).exec();
     // return `This action removes a #${id} user`;
   }
