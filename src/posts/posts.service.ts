@@ -12,8 +12,8 @@ export class PostsService {
 
 
   async create(createPostDto: CreatePostDto) {
-    const user = new this.postsModel(createPostDto);
-    return user.save();
+    const posts = new this.postsModel(createPostDto);
+    return posts.save();
     // return 'This action adds a new user';
   }
 

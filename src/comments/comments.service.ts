@@ -11,8 +11,8 @@ export class CommentsService {
 
 
   async create(createCommentDto: CreateCommentDto) {
-    const user = new this.commentModel(createCommentDto);
-    return user.save();
+    const comment = new this.commentModel(createCommentDto);
+    return comment.save();
     // return 'This action adds a new user';
   }
 
