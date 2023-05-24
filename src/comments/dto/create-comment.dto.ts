@@ -1,6 +1,6 @@
 export class CreateCommentDto {
 
-    post_id: string;
+    comment_id: string;
     user: string;
     comment: string;
     

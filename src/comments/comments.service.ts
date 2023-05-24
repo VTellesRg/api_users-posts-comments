@@ -10,8 +10,8 @@ export class CommentsService {
   constructor(@InjectModel(Comment.name) private commentModel: Model<CommentDocument>) {}
 
 
-  async create(createUserDto: CreateCommentDto) {
-    const user = new this.commentModel(createUserDto);
+  async create(createCommentDto: CreateCommentDto) {
+    const user = new this.commentModel(createCommentDto);
     return user.save();
     // return 'This action adds a new user';
   }
@@ -26,10 +26,10 @@ export class CommentsService {
     // return `This action returns a #${id} user`;
   }
 
-  async update(id: string, updateUserDto: UpdateCommentDto) {
+  async update(id: string, updateCommentDto: UpdateCommentDto) {
     return this.commentModel.findByIdAndUpdate(
       {_id: id,},
-      { $set: updateUserDto,},
+      { $set: updateCommentDto,},
       { new: true,})
     // return `This action updates a #${id} user`;
   }

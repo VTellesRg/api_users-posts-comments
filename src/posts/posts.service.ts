@@ -11,8 +11,8 @@ export class PostsService {
   constructor(@InjectModel(Posts.name) private postsModel: Model<PostsDocument>) {}
 
 
-  async create(createUserDto: CreatePostDto) {
-    const user = new this.postsModel(createUserDto);
+  async create(createPostDto: CreatePostDto) {
+    const user = new this.postsModel(createPostDto);
     return user.save();
     // return 'This action adds a new user';
   }
@@ -27,10 +27,10 @@ export class PostsService {
     // return `This action returns a #${id} user`;
   }
 
-  async update(id: string, updateUserDto: UpdatePostDto) {
+  async update(id: string, updatePostDto: UpdatePostDto) {
     return this.postsModel.findByIdAndUpdate(
       {_id: id,},
-      { $set: updateUserDto,},
+      { $set: updatePostDto,},
       { new: true,})
     // return `This action updates a #${id} user`;
   }
