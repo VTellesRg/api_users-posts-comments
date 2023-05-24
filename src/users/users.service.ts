@@ -29,7 +29,7 @@ export class UsersService {
   async update(id: string, updateUserDto: UpdateUserDto) {
     return this.userModel.findByIdAndUpdate(
       {_id: id,},
-      { updateUserDto,},
+      { $set: updateUserDto,},
       { new: true,})
     // return `This action updates a #${id} user`;
   }

@@ -29,7 +29,7 @@ export class CommentsService {
   async update(id: string, updateUserDto: UpdateCommentDto) {
     return this.commentModel.findByIdAndUpdate(
       {_id: id,},
-      { updateUserDto,},
+      { $set: updateUserDto,},
       { new: true,})
     // return `This action updates a #${id} user`;
   }

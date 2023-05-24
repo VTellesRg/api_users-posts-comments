@@ -30,7 +30,7 @@ export class PostsService {
   async update(id: string, updateUserDto: UpdatePostDto) {
     return this.postsModel.findByIdAndUpdate(
       {_id: id,},
-      { updateUserDto,},
+      { $set: updateUserDto,},
       { new: true,})
     // return `This action updates a #${id} user`;
   }
