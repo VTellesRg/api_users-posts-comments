@@ -14,7 +14,7 @@ export class Posts {
     description: string;
 
     @Prop()
-    url_image: string;
+    url_imagem: string;
 
 
 }
