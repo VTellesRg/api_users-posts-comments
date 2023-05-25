@@ -12,6 +12,15 @@ export class Posts {
 
     @Prop()
     description: string;
+    
+    @Prop()
+    post_date: string;
+
+    @Prop()
+    likes: number;
+
+    @Prop()
+    comments: string[];
 
     @Prop()
     url_imagem: string;
