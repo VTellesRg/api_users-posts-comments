@@ -21,8 +21,13 @@ export class UsersService {
     // return `This action returns all users`;
   }
 
-  async findOne(id: string) {
+  async findOneById(id: string) {
     return this.userModel.findById(id);
+    // return `This action returns a #${id} user`;
+  }
+  
+  async findOne(email: string) {
+    return this.userModel.findOne({email});
     // return `This action returns a #${id} user`;
   }
 
