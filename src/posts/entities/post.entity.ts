@@ -20,10 +20,10 @@ export class Posts {
     likes: number;
 
     @Prop()
-    comments: string[];
+    comments?: string[];
 
     @Prop()
-    url_imagem: string;
+    url_imagem?: string;
 
 
 }
