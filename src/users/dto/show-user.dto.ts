@@ -8,9 +8,6 @@ export class ShowUserDto {
     user: string;
 
     @Expose()
-    birthdate: string;
-    
-    @Expose()
     email: string;
 
     @Expose()
