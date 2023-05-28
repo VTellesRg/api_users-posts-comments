@@ -7,7 +7,8 @@ import { UpdateCommentDto } from './dto/update-comment.dto';
 export class CommentsController {
   constructor(private readonly commentsService: CommentsService) { }
 
-  @Post('/api/v1/posts/:id/comments')
+  @Post('/api/v1/comments')
+  
   create(@Body() createCommentDto: CreateCommentDto) {
     const createComment = this.commentsService.create(createCommentDto);
     return createComment;
@@ -15,6 +16,11 @@ export class CommentsController {
 
   @Get('/api/v1/posts/:id/comments')
   findAll() {
+    const findAllCommentsOfPost = this.commentsService.findAll();
+    return findAllCommentsOfPost;
+  }
+  @Get('/api/v1/comments')
+  findAllComments() {
     const findAllComments = this.commentsService.findAll();
     return findAllComments;
   }

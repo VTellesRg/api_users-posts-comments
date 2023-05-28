@@ -15,9 +15,8 @@ export class PostsController {
 
   @Get('/api/v1/posts')
   async findAll() {
-    const posts = await this.postsService.findAll();
+    const posts = (await this.postsService.findAll()).reverse();
     // console.log(posts);
-
     return posts;
   }
 
