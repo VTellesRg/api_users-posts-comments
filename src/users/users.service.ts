@@ -17,29 +17,35 @@ export class UsersService {
   }
 
   async findAll() {
-    return this.userModel.find();
+    const users = await this.userModel.find();
+    // console.log(users);
+    return users;
     // return `This action returns all users`;
   }
 
   async findOneById(id: string) {
-    return this.userModel.findById(id);
+    const user = await this.userModel.findById(id);
+    return user;
     // return `This action returns a #${id} user`;
   }
   
   async findOne(email: string) {
-    return this.userModel.findOne({email});
+    const user = await this.userModel.findOne({email});
+    return user;
   }
 
   async update(id: string, updateUserDto: UpdateUserDto) {
-    return this.userModel.findByIdAndUpdate(
+    const updateUser = await this.userModel.findByIdAndUpdate(
       {_id: id,},
       { $set: updateUserDto,},
       { new: true,})
+    return updateUser;
     // return `This action updates a #${id} user`;
   }
 
   async remove(id: string) {
-    return this.userModel.deleteOne({_id: id,}).exec();
+    const removeUser = await this.userModel.findByIdAndRemove({_id: id,}).exec();
+    return removeUser;
     // return `This action removes a #${id} user`;
   }
 }
