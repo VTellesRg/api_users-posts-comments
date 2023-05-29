@@ -6,7 +6,7 @@ import { SerializeInterceptor } from 'src/interceptors/serialize.interceptor';
 @Controller()
 export class UsersController {
   constructor(private readonly usersService: UsersService) {}
-  
+  @UseInterceptors(SerializeInterceptor) 
   @Post('/api/v1/users')
   async create(@Body() createUserDto: CreateUserDto) {
     return await this.usersService.create(createUserDto);
